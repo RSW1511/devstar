@@ -45,6 +45,44 @@
     }
   }
 
+  $: {
+  if (uploadedImage) {
+    const image = new Image();
+    image.src = uploadedImage;
+
+    image.onload = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      canvas.width = image.width;
+      canvas.height = image.height;
+
+      ctx.filter = `blur(${blurAmount}px)`;
+      ctx.drawImage(image, 0, 0);
+
+      uploadedImage = canvas.toDataURL();
+    };
+  }
+}
+
+function applyBlur() {
+        const image = new Image();
+        image.src = originalImage;
+
+        image.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = image.width;
+            canvas.height = image.height;
+
+            ctx.filter = `blur(${blurAmount}px)`;
+            ctx.drawImage(image, 0, 0);
+
+            uploadedImage = canvas.toDataURL();
+        };
+    }
+
 </script>
 
 <Intro heading={data.meta.title} description={data.meta.description} />
@@ -65,7 +103,7 @@
 		type="range"
 		min="0"
 		max="10"
-		step="0.5"
+		step="0.1"
 		bind:value={blurAmount}
 	  />
 	  {blurAmount} pixels
