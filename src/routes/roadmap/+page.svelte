@@ -141,6 +141,51 @@
                 githubId: 'munsifsatopay'
             }]
         },
+        {
+            name: 'Currency Calculator',
+            contributors: [{
+                name:  'Harshit Kandpal',
+                githubId: 'harshitkandpal'
+            }]
+        },
+        {
+            name: 'Age Calculator',
+            contributors: [{
+                name:  'Harshit Kandpal',
+                githubId: 'harshitkandpal'
+            }]
+        },
+        {
+            name: 'Dice Roller',
+            contributors: [{
+                name:  'Harshit Kandpal',
+                githubId: 'harshitkandpal'
+            }]
+        },
+        {
+            name: 'Tip Calculator',
+            contributors: [{
+                name:  'Harshit Kandpal',
+                githubId: 'harshitkandpal'
+            }]
+        },
+        {
+            name: 'Permutation and Combination Calculator',
+            contributors: [{
+                name:  'Harshit Kandpal',
+                githubId: 'harshitkandpal'
+            }]
+        },
+        {
+            name: 'Terminal Generator',
+            contributors: [{
+                name: 'Hannan Satopay',
+                githubId: 'hannansatopay'
+            }, {
+                name: 'Sahil Balia',
+                githubId: 'sahilbalia'
+            },
+        }
     ];
 </script>
 <section class="bg-white dark:bg-gray-900 p-3 sm:p-5">
