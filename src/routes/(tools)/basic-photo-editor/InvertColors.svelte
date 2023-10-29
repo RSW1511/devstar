@@ -1,15 +1,37 @@
-<!-- InvertColors.svelte -->
-
 <script>
-  import { onMount } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
 
   export let image;
   export let isLoading;
   export let editedImage;
 
+  const dispatch = createEventDispatcher();
+
   const applyInvertColors = async () => {
-    // Implement the logic for inverting colors
-    // You can use a similar approach as in the main code
+    const img = new Image();
+    img.src = image;
+
+    await new Promise((resolve) => {
+      img.onload = resolve;
+    });
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    // Apply invert colors filter
+    ctx.filter = 'invert(100%)';
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    // Convert the canvas to a data URL
+    editedImage = canvas.toDataURL();
+
+    // Dispatch an event with the edited image data
+    dispatch('invertColorsApplied', { editedImage });
   };
 </script>
 
